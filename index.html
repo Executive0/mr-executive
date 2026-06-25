@@ -1,10 +1,229 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>MR. EXECUTIVE 💸</title>
+
+<style>
+:root{
+--bg:#020202;
+--card:#0a0a0a;
+--card2:#111111;
+--green:#18c964;
+--gold:#c9a227;
+--text:#ffffff;
+}
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Inter,sans-serif;
+}
+
+body{
+background:var(--bg);
+color:white;
+min-height:100vh;
+overflow-x:hidden;
+}
+
+header{
+padding:25px;
+text-align:center;
+}
+
+.logo{
+font-size:2rem;
+font-weight:800;
+letter-spacing:2px;
+}
+
+.tag{
+opacity:.6;
+margin-top:5px;
+}
+
+.dashboard{
+padding:15px;
+display:grid;
+grid-template-columns:repeat(2,1fr);
+gap:12px;
+}
+
+.card{
+background:var(--card);
+border:1px solid rgba(255,255,255,.05);
+border-radius:18px;
+padding:20px;
+}
+
+.card h3{
+font-size:.8rem;
+opacity:.6;
+margin-bottom:10px;
+}
+
+.value{
+font-size:1.6rem;
+font-weight:bold;
+}
+
+.green{
+color:var(--green);
+text-shadow:0 0 12px rgba(24,201,100,.4);
+}
+
+.board{
+margin:15px;
+background:var(--card2);
+border-radius:20px;
+padding:20px;
+}
+
+.board h2{
+margin-bottom:15px;
+}
+
+.row{
+display:flex;
+justify-content:space-between;
+margin-bottom:10px;
+}
+
+.bottom-nav{
+position:fixed;
+bottom:0;
+left:0;
+width:100%;
+background:#080808;
+display:flex;
+justify-content:space-around;
+padding:15px 0;
+border-top:1px solid rgba(255,255,255,.05);
+}
+
+.nav-item{
+opacity:.6;
+cursor:pointer;
+}
+
+.nav-item.active{
+color:var(--green);
+opacity:1;
+text-shadow:0 0 10px rgba(24,201,100,.5);
+}
+
+.money-note{
+position:fixed;
+top:50%;
+left:50%;
+transform:translate(-50%,-50%);
+font-size:28px;
+opacity:0;
+pointer-events:none;
+animation:moneyFade 2s ease forwards;
+}
+
+@keyframes moneyFade{
+0%{opacity:0}
+25%{opacity:.12}
+75%{opacity:.12}
+100%{opacity:0}
+}
+
+.spacer{
+height:100px;
+}
+</style>
 </head>
-<body style="background:black;color:white;text-align:center;padding-top:100px;font-family:Arial;">
-<h1>MR. EXECUTIVE 💸</h1>
-<p>Data Over Emotions</p>
+
+<body>
+
+<header>
+<div class="logo">MR. EXECUTIVE 💸</div>
+<div class="tag">Data Over Emotions</div>
+</header>
+
+<section class="dashboard">
+
+<div class="card">
+<h3>NET PROFIT</h3>
+<div class="value green">$0</div>
+</div>
+
+<div class="card">
+<h3>WIN RATE</h3>
+<div class="value">0%</div>
+</div>
+
+<div class="card">
+<h3>TRADES</h3>
+<div class="value">0</div>
+</div>
+
+<div class="card">
+<h3>STREAK</h3>
+<div class="value">0</div>
+</div>
+
+</section>
+
+<section class="board">
+<h2>Executive Board</h2>
+
+<div class="row">
+<span>Best Strategy</span>
+<span>—</span>
+</div>
+
+<div class="row">
+<span>Best Pair</span>
+<span>—</span>
+</div>
+
+<div class="row">
+<span>Best Session</span>
+<span>—</span>
+</div>
+
+<div class="row">
+<span>Current Mission</span>
+<span>Follow The Plan</span>
+</div>
+</section>
+
+<div class="spacer"></div>
+
+<nav class="bottom-nav">
+<div class="nav-item active">🏠</div>
+<div class="nav-item">📖</div>
+<div class="nav-item">⚔️</div>
+<div class="nav-item">📊</div>
+<div class="nav-item">⚙️</div>
+</nav>
+
+<script>
+
+function showMoney(){
+const note=document.createElement("div");
+note.className="money-note";
+note.innerHTML="💵";
+document.body.appendChild(note);
+
+setTimeout(()=>{
+note.remove();
+},2000);
+}
+
+setInterval(()=>{
+if(Math.random()>0.7){
+showMoney();
+}
+},30000);
+
+</script>
+
 </body>
 </html>
